@@ -1,10 +1,10 @@
 {
     "name": "Togetherai",
     "version": "0.0.1",
-    "description": "Description of togetherai.",
-    "author_name": "Me",
-    "author_url": "https://mywebsite.me",
-    "plugin_url": "https://github.com/my_name/togetherai",
-    "tags": "cat, template, example",
+    "description": "A simple plugin to integrate Together AI SaaS",
+    "author_name": "valentimarco",
+    "author_url": "https://www.linkedin.com/in/valentimarco21/",
+    "plugin_url": "https://github.com/valentimarco/Together-AI-Integration",
+    "tags": "cat, Integration, SaaS, AI, TogetherAI",
     "thumb": "https://raw.githubusercontent.com/my_repo_path/togetherai.png"
 }
