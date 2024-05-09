@@ -3,20 +3,7 @@ from cat.mad_hatter.decorators import tool, hook, plugin
 from pydantic import BaseModel, ConfigDict, SecretStr
 from datetime import datetime, date
 from cat.factory.llm import LLMSettings
-from langchain_openai.chat_models import ChatOpenAI
 from langchain_together import ChatTogether
-
-
-class CustomOpenAI(ChatOpenAI):
-    def __init__(self, **kwargs):
-        model_kwargs = {}
-
-        super().__init__(
-            openai_api_key=kwargs["api_key"], model_kwargs=model_kwargs, **kwargs
-        )
-
-        self.openai_api_base = kwargs["base_url"]
-
 
 class TogetherAIConfig(LLMSettings):
     together_api_key: str
