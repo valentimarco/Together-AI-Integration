@@ -4,31 +4,29 @@ from pydantic import BaseModel, ConfigDict, SecretStr
 from datetime import datetime, date
 from cat.factory.llm import LLMSettings
 from langchain_openai.chat_models import ChatOpenAI
+from langchain_together import ChatTogether
 
 
 class CustomOpenAI(ChatOpenAI):
-
     def __init__(self, **kwargs):
         model_kwargs = {}
 
         super().__init__(
-            openai_api_key=kwargs['api_key'],
-            model_kwargs=model_kwargs,
-            **kwargs
+            openai_api_key=kwargs["api_key"], model_kwargs=model_kwargs, **kwargs
         )
 
-        self.openai_api_base = kwargs['base_url']
+        self.openai_api_base = kwargs["base_url"]
 
 
 class TogetherAIConfig(LLMSettings):
-    api_key: str
-    base_url: str = "https://api.together.xyz/v1"
-    model: str = "mistralai/Mixtral-8x7B-Instruct-v0.1"
+    together_api_key: str
+    together_api_base: str = "https://api.together.xyz/v1"
+    model_name: str = "meta-llama/Llama-3-8b-chat-hf"
     temperature: float = 0.7
     max_tokens: int = 4096
     streaming: bool = True
 
-    _pyclass: Type = CustomOpenAI
+    _pyclass: Type = ChatTogether
 
     model_config = ConfigDict(
         json_schema_extra={
