@@ -5,12 +5,11 @@ from datetime import datetime, date
 from cat.factory.llm import LLMSettings
 from langchain_together import ChatTogether
 
-class TogetherAIConfig(LLMSettings):
+class TogetherAIConfig004(LLMSettings):
     together_api_key: str
     together_api_base: str = "https://api.together.xyz/v1"
     model_name: str = "meta-llama/Llama-3-8b-chat-hf"
     temperature: float = 0.7
-    max_tokens: int = 4096
     streaming: bool = True
 
     _pyclass: Type = ChatTogether
@@ -26,5 +25,5 @@ class TogetherAIConfig(LLMSettings):
 
 @hook
 def factory_allowed_llms(allowed, cat) -> List:
-    allowed.append(TogetherAIConfig)
+    allowed.append(TogetherAIConfig004)
     return allowed
